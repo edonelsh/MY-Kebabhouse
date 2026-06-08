@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Kebab House — Lingen</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+
+    <!-- ══════════════════════════════════════
+         INFO BAR (ganz oben, immer sichtbar)
+         ══════════════════════════════════════ -->
+    <div class="info-bar" id="infoBar">
+      <div class="info-bar-inner">
+
+        <!-- Lieferzeiten -->
+        <div class="info-bar-item info-delivery">
+          <span class="info-bar-icon">🛵</span>
+          <span>Lieferung ab 18:00 &nbsp;·&nbsp; ab 18 € in Lingen</span>
+        </div>
+
+        <div class="info-bar-sep"></div>
+
+        <!-- Wochenangebote -->
+        <div class="info-bar-specials">
+          <span class="info-bar-label">Angebote:</span>
+          <span class="special-pill" data-day="Di"><strong>Di</strong> Pizza 8,00 €</span>
+          <span class="special-pill" data-day="Mi"><strong>Mi</strong> Auflauf 9,00 €</span>
+          <span class="special-pill" data-day="Do"><strong>Do</strong> Döner −0,50 €</span>
+        </div>
+
+        <div class="info-bar-sep"></div>
+
+        <!-- Telefon -->
+        <a href="tel:059112079126" class="info-bar-item info-phone">
+          <span class="info-bar-icon">📞</span>
+          <span>0591 120 79 126</span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         NAVBAR
+         ══════════════════════════════════════ -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-logo">
+        <img src="logo_mykebabhouse.png" alt="My Kebab House" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="#hero">Start</a></li>
+        <li><a href="#about">Über uns</a></li>
+        <li><a href="#location">Standort</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-menu-nav" onclick="openMenuModal()">Speisekarte</button>
+        <button class="btn-order-nav" onclick="openOrderModal()">Jetzt bestellen</button>
+      </div>
+    </nav>
+
+    <!-- ══════════════════════════════════════
+         HERO
+         ══════════════════════════════════════ -->
+    <section class="hero" id="hero">
+      <div class="hero-bg" style="background-image: url('WhatsApp Image 2026-06-03 at 21.54.20.jpeg')"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <img src="logo_mykebabhouse.png" alt="My Kebab House" class="hero-logo" />
+        <h1 class="hero-title">
+          <span class="line1">Frisch.</span>
+          <span class="line2">Lecker.</span>
+          <span class="line3">Authentisch.</span>
+        </h1>
+        <p class="hero-sub">Konrad-Adenauer-Ring 14 · 49808 Lingen (Ems)</p>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="openOrderModal()">Jetzt bestellen</button>
+          <button class="btn-ghost"   onclick="openMenuModal()">Zur Speisekarte</button>
+        </div>
+      </div>
+      <div class="scroll-indicator"><div class="scroll-dot"></div></div>
+    </section>
+
+    <!-- TAGLINE BAND -->
+    <div class="tagline-band">
+      <div class="tagline-track">
+        <span>Döner &bull;</span><span>Pizza &bull;</span><span>Lahmacun &bull;</span>
+        <span>Pasta &bull;</span><span>Falafel &bull;</span><span>Fitness Meals &bull;</span>
+        <span>Döner &bull;</span><span>Pizza &bull;</span><span>Lahmacun &bull;</span>
+        <span>Pasta &bull;</span><span>Falafel &bull;</span><span>Fitness Meals &bull;</span>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="about-img reveal">
+        <img src="rhl4969_2109_1.jpg" alt="Lingen" />
+      </div>
+      <div class="about-text reveal delay-1">
+        <span class="section-label">Über uns</span>
+        <h2>Tradition trifft <em>Leidenschaft</em></h2>
+        <p>My Kebab House steht für echte türkisch-mediterrane Küche — zubereitet mit frischen Zutaten und überlieferten Rezepten. Von Döner bis Pizza, von Fitness Meals bis Pasta-Auflauf: bei uns ist für jeden etwas dabei.</p>
+        <p>Ihr findet uns am Konrad-Adenauer-Ring 14 in Lingen, mit Lieferservice in die gesamte Region.</p>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS: Angebote + Bestellen + Öffnungszeiten -->
+    <section class="highlights-section" id="highlights">
+      <div class="highlights-grid">
+
+        <!-- Wochenangebote -->
+        <div class="highlight-card reveal">
+          <div class="hc-header">
+            <span class="hc-label">Wochenangebote</span>
+            <h3>Diese Woche</h3>
+          </div>
+          <div class="hc-specials">
+            <div class="hcs-item" data-day="Di">
+              <span class="hcs-day">Di</span>
+              <div class="hcs-info"><strong>Pizzatag</strong><span>Jede Pizza nur 8,00 €</span></div>
+              <span class="hcs-price">8,00 €</span>
+            </div>
+            <div class="hcs-item" data-day="Mi">
+              <span class="hcs-day">Mi</span>
+              <div class="hcs-info"><strong>Nudeltag</strong><span>Auflauf mit Salat</span></div>
+              <span class="hcs-price">9,00 €</span>
+            </div>
+            <div class="hcs-item" data-day="Do">
+              <span class="hcs-day">Do</span>
+              <div class="hcs-info"><strong>Dönertag</strong><span>Rabatt auf eingerollte Kebab</span></div>
+              <span class="hcs-price">−0,50 €</span>
+            </div>
+          </div>
+          <p class="hc-note">Gilt nicht an Feiertagen · Zusatzbeläge gegen Aufpreis</p>
+        </div>
+
+        <!-- Online bestellen -->
+        <div class="highlight-card highlight-order reveal delay-1">
+          <div class="hc-header">
+            <span class="hc-label">Neu</span>
+            <h3>Online bestellen</h3>
+          </div>
+          <p class="hc-desc">Unser Online-Bestellsystem wird gerade eingerichtet — bald könnt ihr direkt hier bestellen. Bis dahin erreicht ihr uns telefonisch.</p>
+          <div class="hc-actions">
+            <button class="btn-primary" onclick="openOrderModal()">Online bestellen</button>
+            <a href="tel:059112079126" class="btn-ghost-sm">Anrufen</a>
+          </div>
+        </div>
+
+        <!-- Öffnungszeiten + Lieferung -->
+        <div class="highlight-card reveal delay-2">
+          <div class="hc-header">
+            <span class="hc-label">Zeiten</span>
+            <h3>Öffnungszeiten</h3>
+          </div>
+          <div class="hc-hours">
+            <div class="hours-row"><span>Mo – Sa</span><span>10:30 – 22:30</span></div>
+            <div class="hours-row"><span>So &amp; Feiertage</span><span>11:30 – 22:00</span></div>
+            <div class="hours-divider"></div>
+            <div class="hours-row hours-delivery"><span>Lieferung Mo–Sa</span><span>11:30–14:00 &amp; 17:00–22:00</span></div>
+            <div class="hours-row hours-delivery"><span>Lieferung So &amp; Feiertage</span><span>11:30–22:00</span></div>
+            <div class="hours-divider"></div>
+            <div class="hours-row hours-reach"><span>Ab 18 €</span><span>Lingen</span></div>
+            <div class="hours-row hours-reach"><span>Ab 35 €</span><span>Bramsche, Lohne, Biene, Ramsel, Baccum, Dalum</span></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="location-section" id="location">
+      <div class="location-img reveal">
+        <img src="WhatsApp Image 2026-06-03 at 21.54.20.jpeg" alt="My Kebab House" />
+        <div class="location-glow"></div>
+      </div>
+      <div class="location-info reveal delay-1">
+        <span class="section-label">Standort</span>
+        <h2>Findet uns in <em>Lingen</em></h2>
+        <div class="info-cards">
+          <div class="info-card">
+            <div class="info-icon">📍</div>
+            <div><strong>Adresse</strong><p>Konrad-Adenauer-Ring 14, 49808 Lingen (Ems)</p></div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">🕐</div>
+            <div>
+              <strong>Öffnungszeiten</strong>
+              <p>Mo – Sa: 10:30 – 22:30 Uhr</p>
+              <p>So &amp; Feiertage: 11:30 – 22:00 Uhr</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">📞</div>
+            <div><strong>Telefon</strong><p>0591 120 79 126</p></div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">🛵</div>
+            <div>
+              <strong>Lieferservice</strong>
+              <p>Mo–Sa: 11:30–14:00 &amp; 17:00–22:00 Uhr</p>
+              <p>So &amp; Feiertage: 11:30–22:00 Uhr</p>
+              <p class="delivery-reach">Ab 18 € in Lingen · Ab 35 € in Bramsche, Lohne u.a.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+      <div class="contact-inner reveal">
+        <span class="section-label">Kontakt</span>
+        <h2>Schreibt uns</h2>
+        <p>Fragen, Feedback oder Reservierungen — wir freuen uns von euch zu hören.</p>
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <input type="text" placeholder="Name" />
+            <input type="email" placeholder="E-Mail" />
+          </div>
+          <textarea placeholder="Nachricht..." rows="5"></textarea>
+          <button type="submit" class="btn-primary">Absenden</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="logo_mykebabhouse.png" alt="My Kebab House" />
+          <p>Frisch. Lecker. Authentisch.<br />Konrad-Adenauer-Ring 14, 49808 Lingen.</p>
+          <div class="footer-social">
+            <a href="https://www.mykebabhouse.de" target="_blank" rel="noopener">mykebabhouse.de</a>
+            <a href="https://www.facebook.com/mykebabhouse" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.instagram.com/mykebabhouse_" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <a href="#hero">Start</a>
+          <a href="#about">Über uns</a>
+          <a href="#location">Standort</a>
+          <a href="#contact">Kontakt</a>
+          <a href="javascript:void(0)" onclick="openMenuModal()">Speisekarte</a>
+          <a href="javascript:void(0)" onclick="openOrderModal()">Online bestellen</a>
+        </div>
+        <div class="footer-hours">
+          <h4>Öffnungszeiten</h4>
+          <p>Mo – Sa: 10:30 – 22:30</p>
+          <p>So &amp; Feiertage: 11:30 – 22:00</p>
+          <p class="footer-note">Inh. Massayh Yenigün</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 My Kebab House · Alle Rechte vorbehalten · Stand 06/2025</p>
+      </div>
+    </footer>
+
+
+    <!-- ══════════════════════════════════════
+         SPEISEKARTE MODAL (full screen)
+         ══════════════════════════════════════ -->
+    <div class="menu-modal-overlay" id="menuModal">
+      <div class="menu-modal">
+
+        <div class="menu-modal-header">
+          <div class="menu-modal-title">
+            <img src="logo_mykebabhouse.png" alt="" class="menu-modal-logo" />
+            <div>
+              <h2>Speisekarte</h2>
+              <p>Konrad-Adenauer-Ring 14 · Lingen · 0591 120 79 126</p>
+            </div>
+          </div>
+          <button class="menu-modal-close" onclick="closeMenuModal()">&#x2715;</button>
+        </div>
+
+        <div class="menu-modal-tabs">
+          <button class="tab-btn active" data-cat="kebab">Kebab &amp; Co.</button>
+          <button class="tab-btn" data-cat="pizza">Pizza</button>
+          <button class="tab-btn" data-cat="snacks">Snacks</button>
+          <button class="tab-btn" data-cat="pasta">Pasta &amp; Auflauf</button>
+          <button class="tab-btn" data-cat="fitness">Fitness Meals</button>
+          <button class="tab-btn" data-cat="salat">Salate</button>
+          <button class="tab-btn" data-cat="beilagen">Beilagen</button>
+          <button class="tab-btn" data-cat="drinks">Getränke</button>
+        </div>
+
+        <div class="menu-modal-body">
+
+          <!-- ---- KEBAB & CO ---- -->
+          <div class="menu-category active" id="cat-kebab">
+            <div class="menu-cat-intro">
+              <h3 class="cat-title">Kebab &amp; Co.</h3>
+              <p class="cat-sub">Eingerollt klein / groß · Als Teller · Als Tasche</p>
+            </div>
+            <div class="menu-col-grid">
+              <div class="menu-col">
+                <div class="menu-col-label">Eingerollt</div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Kebab eingerollt</span><span class="item-desc">Hackfleisch-Drehspieß, Tzatziki, Tomaten, Gurken, Eisbergsalat, Krautsalat, Zwiebeln</span></div><span class="item-price">6,00 / 8,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Kebab Speciale eingerollt <span class="item-tag">Käse überbacken</span></span><span class="item-desc">Hackfleisch-Drehspieß, Tzatziki, Tomaten, Gurken, Eisbergsalat, Krautsalat, Zwiebeln, Käse</span></div><span class="item-price">7,00 / 9,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Di Pollo eingerollt</span><span class="item-desc">Hähnchenfleisch-Drehspieß, Tzatziki, Tomaten, Gurken, Eisbergsalat, Krautsalat, Zwiebeln</span></div><span class="item-price">6,00 / 8,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Di Pollo Speciale eingerollt <span class="item-tag">Käse überbacken</span></span><span class="item-desc">Hähnchenfleisch-Drehspieß, Tzatziki, Tomaten, Gurken, Eisbergsalat, Krautsalat, Zwiebeln</span></div><span class="item-price">7,00 / 9,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Falafel eingerollt <span class="item-tag vegan">Vegan</span></span><span class="item-desc">Falafel, Tzatziki, Tomaten, Gurken, Eisbergsalat, Krautsalat, Zwiebeln</span></div><span class="item-price">6,00 / 8,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Big L</span><span class="item-desc">Hackfleisch-Drehspieß, Tzatziki, Tomaten, Gurken, Eisbergsalat, Krautsalat, Zwiebeln</span></div><span class="item-price">15,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Big L Speciale <span class="item-tag">Käse überbacken</span></span><span class="item-desc">Hackfleisch-Drehspieß, Tzatziki, Tomaten, Gurken, Eisbergsalat, Krautsalat, Zwiebeln</span></div><span class="item-price">17,50 €</span></div>
+              </div>
+              <div class="menu-col">
+                <div class="menu-col-label">Teller</div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Kebab Teller</span><span class="item-desc">Hackfleisch-Drehspieß, Pommes, Tzatziki, Beilagensalat, Brot</span></div><span class="item-price">14,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Di Pollo Teller</span><span class="item-desc">Hähnchenfleisch-Drehspieß, Pommes, Tzatziki, Beilagensalat, Brot</span></div><span class="item-price">14,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">PommKebab</span><span class="item-desc">Hackfleisch-Drehspieß, Pommes, Tzatziki</span></div><span class="item-price">7,50 €</span></div>
+                <div class="menu-col-label" style="margin-top:1.5rem;">Lahmacun</div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Lahmacun</span><span class="item-desc">Fleischsoße, Tzatziki, Tomaten, Gurken, Eisbergsalat, Krautsalat, Zwiebeln</span></div><span class="item-price">7,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Lahmacun Speciale</span><span class="item-desc">Fleischsoße, Hackfleisch-Drehspieß, Tzatziki, Tomaten, Gurken, Krautsalat</span></div><span class="item-price">8,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">MY Lahmacun</span><span class="item-desc">Fleischsoße, Hackfleisch-Drehspieß, Sucuk, Tzatziki, Tomaten, Gurken, Krautsalat</span></div><span class="item-price">9,00 €</span></div>
+                <div class="menu-col-label" style="margin-top:1.5rem;">Taschen</div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Kebab-Tasche</span><span class="item-desc">Hackfleisch-Drehspieß, Tzatziki, gem. Salat, Eisbergsalat, Krautsalat, Zwiebeln</span></div><span class="item-price">7,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Di Pollo-Tasche</span><span class="item-desc">Hähnchenfleisch-Drehspieß, Tzatziki, gem. Salat, Eisbergsalat, Krautsalat, Zwiebeln</span></div><span class="item-price">7,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Falafel-Tasche <span class="item-tag vegan">Vegan</span></span><span class="item-desc">Falafel, Tzatziki, gem. Salat, Eisbergsalat, Krautsalat, Zwiebeln</span></div><span class="item-price">7,00 €</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---- PIZZA ---- -->
+          <div class="menu-category" id="cat-pizza">
+            <div class="menu-cat-intro">
+              <h3 class="cat-title">Pizza</h3>
+              <p class="cat-sub">Hausgemachter Pizzateig mit Weizenmehl · 24 cm &amp; 28 cm · Jeder weitere Belag: 0,50 € / 1,00 €</p>
+            </div>
+            <div class="menu-col-grid">
+              <div class="menu-col">
+                <div class="menu-col-label">Klassiker</div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">1 · Margherita</span><span class="item-desc">Tomatensauce, Käse</span></div><span class="item-price">6,50 / 9,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">2 · Cipolle</span><span class="item-desc">Tomatensauce, Käse, Zwiebeln</span></div><span class="item-price">7,00 / 9,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">3 · Salame</span><span class="item-desc">Tomatensauce, Käse, Salami</span></div><span class="item-price">7,00 / 9,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">4 · Prosciutto</span><span class="item-desc">Tomatensauce, Käse, Truthahnschinken</span></div><span class="item-price">7,00 / 9,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">5 · Tonno</span><span class="item-desc">Tomatensauce, Käse, Thunfisch</span></div><span class="item-price">7,00 / 9,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">6 · Funghi</span><span class="item-desc">Tomatensauce, Käse, Pilze</span></div><span class="item-price">7,00 / 9,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">8 · Hawaii</span><span class="item-desc">Tomatensauce, Käse, Truthahnschinken, Ananas</span></div><span class="item-price">7,50 / 10,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">9 · Diavolo <span class="item-tag scharf">Scharf</span></span><span class="item-desc">Tomatensauce, Käse, Salami, Paprika, Peperonie, Zwiebeln</span></div><span class="item-price">7,50 / 10,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">12 · Rucola</span><span class="item-desc">Tomatensauce, Käse, Rucola, Parmesan</span></div><span class="item-price">7,50 / 10,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">23 · Mozzarella</span><span class="item-desc">Tomatensauce, Käse, Tomaten, Mozzarella</span></div><span class="item-price">7,50 / 10,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">26 · Bolognese</span><span class="item-desc">Tomatensauce, Käse, Bolognese</span></div><span class="item-price">8,00 / 11,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">28 · Calzone</span><span class="item-desc">Tomatensauce, Käse, Salami, Schinken, Pilze, Paprika</span></div><span class="item-price">8,50 / 11,00 €</span></div>
+              </div>
+              <div class="menu-col">
+                <div class="menu-col-label">Mit Drehspieß</div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">37 · Nu Pizza</span><span class="item-desc">Tomatensauce, Hähnchenfleisch-Drehspieß, Peperoni, Zwiebeln, Käse</span></div><span class="item-price">8,00 / 11,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">38 · Di Pollo</span><span class="item-desc">Tomatensauce, Hähnchenfleisch-Drehspieß, Zwiebeln, Käse</span></div><span class="item-price">8,00 / 11,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">40 · Calzone Di Pollo</span><span class="item-desc">Tomatensauce, Hähnchenfleisch-Drehspieß, frische Paprika, Zwiebeln, Käse</span></div><span class="item-price">8,50 / 11,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">41 · Kebab Pizza</span><span class="item-desc">Tomatensauce, Hackfleisch-Drehspieß, Zwiebeln, Käse</span></div><span class="item-price">8,00 / 11,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">45 · MY Pizza <span class="item-tag">Hausspecial</span></span><span class="item-desc">Tomatensauce, Hackfleisch-Drehspieß, Tomaten, Peperoni, Hollandaise, Zwiebeln, Käse</span></div><span class="item-price">8,50 / 11,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">44 · Dallas Pizza</span><span class="item-desc">Tomatensauce, Hähnchen- &amp; Hackfleisch-Drehspieß, Salami, frische Pilze, Zwiebeln, Käse</span></div><span class="item-price">8,50 / 11,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">48 · Sucuk Pizza</span><span class="item-desc">Tomatensauce, Sucuk (Knoblauchwurst), Käse</span></div><span class="item-price">7,50 / 10,00 €</span></div>
+                <div class="menu-col-label" style="margin-top:1.5rem;">Besondere Größen</div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">50 · Familien Pizza</span><span class="item-desc">Tomatensauce, Käse, vier Beläge nach Wahl · Jeder weitere Belag 3,00 €</span></div><span class="item-price">25,00 €</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---- SNACKS ---- -->
+          <div class="menu-category" id="cat-snacks">
+            <div class="menu-cat-intro">
+              <h3 class="cat-title">Snacks</h3>
+              <p class="cat-sub">Aufgerollt in Pizzateig · Klein (6 Stück) &amp; Groß (10 Stück)</p>
+            </div>
+            <div class="menu-col-grid">
+              <div class="menu-col">
+                <div class="menu-item"><div class="item-info"><span class="item-name">51 · Di Pollo Snack</span><span class="item-desc">Hähnchenfleisch-Drehspieß, Käse</span></div><span class="item-price">6,50 / 9,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">52 · Di Pollo Snack Speciale</span><span class="item-desc">Hähnchenfleisch-Drehspieß, Mais, Hollandaise, Käse</span></div><span class="item-price">7,00 / 9,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">53 · Kebab Snack</span><span class="item-desc">Hackfleisch-Drehspieß, Käse</span></div><span class="item-price">6,50 / 9,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">54 · Kebab Snack Speciale</span><span class="item-desc">Hackfleisch-Drehspieß, Mais, Hollandaise, Käse</span></div><span class="item-price">7,00 / 9,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">55 · Vegetaria Snack <span class="item-tag vegan">Vegetarisch</span></span><span class="item-desc">Käse, Tomaten, Gurken, Mais, Eisbergsalat, Paprika</span></div><span class="item-price">7,00 / 9,50 €</span></div>
+              </div>
+              <div class="menu-col">
+                <div class="menu-item"><div class="item-info"><span class="item-name">56 · Hawaii Snack</span><span class="item-desc">Käse, Truthahnschinken, Ananas</span></div><span class="item-price">6,50 / 9,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">57 · Tonno Snack</span><span class="item-desc">Käse, Thunfisch, Hollandaise</span></div><span class="item-price">7,00 / 9,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">60 · Bolognese Snack</span><span class="item-desc">Käse, Fleischsoße, frische Paprika</span></div><span class="item-price">6,50 / 9,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">61 · Sucuk Snack</span><span class="item-desc">Käse, Sucuk (Knoblauchwurst)</span></div><span class="item-price">6,50 / 9,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">59 · Salame Caprese Snack</span><span class="item-desc">Käse, Salami, Mozzarella, frische Tomaten</span></div><span class="item-price">7,00 / 9,50 €</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---- PASTA ---- -->
+          <div class="menu-category" id="cat-pasta">
+            <div class="menu-cat-intro">
+              <h3 class="cat-title">Pasta &amp; Auflauf</h3>
+              <p class="cat-sub">Nudeln aus Hartweizengrieß · Mittwoch: Auflauf mit Salat nur 9,00 €</p>
+            </div>
+            <div class="menu-col-grid">
+              <div class="menu-col">
+                <div class="menu-col-label">Spaghetti &amp; Tortellini</div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">103 · Spaghetti Pomodoro</span><span class="item-desc">Spaghetti, Tomatensauce</span></div><span class="item-price">8,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">104 · Spaghetti Carbonara</span><span class="item-desc">Truthahnschinken, Ei, Sahnesauce</span></div><span class="item-price">10,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">105 · Spaghetti Bolognese</span><span class="item-desc">Fleischsoße, Tomatensauce</span></div><span class="item-price">10,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">106 · Spaghetti Tonno</span><span class="item-desc">Thunfisch, Hollandaise, Sahnesauce</span></div><span class="item-price">10,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">108 · Tortellini Spinaci</span><span class="item-desc">Tortellini, Spinat, Sahnesauce, Parmesan, Gorgonzola</span></div><span class="item-price">10,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">110 · Penne Formaggi</span><span class="item-desc">Penne, Mozzarella, Weichkäse, Gorgonzola, Parmesan, Sahnesauce</span></div><span class="item-price">10,00 €</span></div>
+              </div>
+              <div class="menu-col">
+                <div class="menu-col-label">Auflauf</div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">111 · Kebab Auflauf</span><span class="item-desc">Spaghetti, Hackfleisch-Drehspieß, frische Paprika, Zwiebeln, Sahnesauce, Hollandaise, mit Käse überbacken</span></div><span class="item-price">12,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">112 · Di Pollo Auflauf</span><span class="item-desc">Spaghetti, Hähnchenfleisch-Drehspieß, frische Paprika, Zwiebeln, Sahnesauce, Hollandaise, mit Käse überbacken</span></div><span class="item-price">12,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">113 · Penne Vegetaria <span class="item-tag vegan">Vegetarisch</span></span><span class="item-desc">Penne, Brokkoli, frische Pilze, frische Paprika, Mais, Zwiebeln, Peperoni, Sahnesauce</span></div><span class="item-price">11,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">114 · MY Auflauf <span class="item-tag">Hausspecial</span></span><span class="item-desc">Penne, Hähnchenfleisch-Drehspieß, Mais, Brokkoli, Hollandaise, Sahnesauce, mit Käse überbacken</span></div><span class="item-price">12,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">115 · Sucuk Auflauf</span><span class="item-desc">Penne, Sucuk (Knoblauchwurst), frische Paprika, frische Pilze, Brokkoli, Sahnesauce, Hollandaise, mit Käse überbacken</span></div><span class="item-price">12,00 €</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---- FITNESS MEALS ---- -->
+          <div class="menu-category" id="cat-fitness">
+            <div class="menu-cat-intro">
+              <h3 class="cat-title">Fitness Meals</h3>
+              <p class="cat-sub">Mit Bulgur (roter Reis) und kleinem Salat · Je 10,50 €</p>
+            </div>
+            <div class="menu-col-grid">
+              <div class="menu-col">
+                <div class="menu-item"><div class="item-info"><span class="item-name">120 · Fitness Meal 1</span><span class="item-desc">Hähnchenfleisch-Drehspieß, Bulgur, kleiner Salat</span></div><span class="item-price">10,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">121 · Fitness Meal 2</span><span class="item-desc">Hackfleisch-Drehspieß, Bulgur, kleiner Salat</span></div><span class="item-price">10,50 €</span></div>
+              </div>
+              <div class="menu-col">
+                <div class="menu-item"><div class="item-info"><span class="item-name">122 · Fitness Meal 3 <span class="item-tag vegan">Vegan</span></span><span class="item-desc">Falafel, Bulgur, eingelegte Gurken, kleiner Salat mit Essig-Öl-Dressing</span></div><span class="item-price">10,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">123 · Fitness Meal 4</span><span class="item-desc">Hähnchenfleisch-Drehspieß, Paprika, Zwiebeln, Bulgur, kleiner Salat</span></div><span class="item-price">10,50 €</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---- SALATE ---- -->
+          <div class="menu-category" id="cat-salat">
+            <div class="menu-cat-intro">
+              <h3 class="cat-title">Salate</h3>
+              <p class="cat-sub">Mit Dressing nach Wahl: Joghurt · Cocktailsauce · Essig und Öl</p>
+            </div>
+            <div class="menu-col-grid">
+              <div class="menu-col">
+                <div class="menu-item"><div class="item-info"><span class="item-name">76 · Gemischter Salat</span><span class="item-desc">Eisbergsalat, Tomaten, Gurken, Mais, Paprika, Bohnen</span></div><span class="item-price">8,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">77 · Insalata Pomodori</span><span class="item-desc">Tomatensalat, Weichkäse, Zwiebeln</span></div><span class="item-price">7,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">78 · Bauernsalat</span><span class="item-desc">Eisbergsalat, Tomaten, Gurken, Truthahnschinken, Mais, Ei</span></div><span class="item-price">8,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">80 · Insalata Rucola</span><span class="item-desc">Rucola, Tomaten, Mozzarella, Parmesanraspeln</span></div><span class="item-price">8,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">82 · MY Salat</span><span class="item-desc">Eisbergsalat, Tomaten, Gurken, Mais, frische Paprika, Peperoni, Oliven, Weichkäse</span></div><span class="item-price">10,00 €</span></div>
+              </div>
+              <div class="menu-col">
+                <div class="menu-item"><div class="item-info"><span class="item-name">81 · Insalata Di Pollo</span><span class="item-desc">Eisbergsalat, Hähnchenfleisch-Drehspieß, Tomaten, Gurken, Zwiebeln</span></div><span class="item-price">10,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">83 · Cesare Salat</span><span class="item-desc">Eisbergsalat, Tomaten, Gurken, Artischocken, Weichkäse, Zwiebeln, Oliven</span></div><span class="item-price">10,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">84 · Kebab Salat</span><span class="item-desc">Eisbergsalat, Tomaten, Gurken, Hackfleisch-Drehspieß, Krautsalat, Zwiebeln</span></div><span class="item-price">10,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">85 · Nacho Salat</span><span class="item-desc">Eisbergsalat, Tomaten, Gurken, Hackfleisch-Drehspieß, Nachos</span></div><span class="item-price">10,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">79 · Insalata Tonno</span><span class="item-desc">Eisbergsalat, Thunfisch, Tomaten, Gurken, Zwiebeln</span></div><span class="item-price">10,00 €</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---- BEILAGEN ---- -->
+          <div class="menu-category" id="cat-beilagen">
+            <div class="menu-cat-intro">
+              <h3 class="cat-title">Beilagen</h3>
+            </div>
+            <div class="menu-col-grid">
+              <div class="menu-col">
+                <div class="menu-item"><div class="item-info"><span class="item-name">Pommes</span></div><span class="item-price">3,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Chicken Nuggets</span></div><span class="item-price">3,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Kroketten</span></div><span class="item-price">3,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Wedges</span></div><span class="item-price">3,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Pizzabrötchen</span></div><span class="item-price">3,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Pizzabrötchen mit Käse überbacken</span></div><span class="item-price">5,00 €</span></div>
+              </div>
+              <div class="menu-col">
+                <div class="menu-item"><div class="item-info"><span class="item-name">Tzatziki</span></div><span class="item-price">1,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Oliven und Peperoni</span></div><span class="item-price">4,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Weichkäse</span></div><span class="item-price">4,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Krautsalat</span></div><span class="item-price">4,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Süß-sauer Soße / Ketchup / Mayonnaise</span></div><span class="item-price">0,50 €</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---- GETRÄNKE ---- -->
+          <div class="menu-category" id="cat-drinks">
+            <div class="menu-cat-intro">
+              <h3 class="cat-title">Getränke</h3>
+              <p class="cat-sub">0,33 l</p>
+            </div>
+            <div class="menu-col-grid">
+              <div class="menu-col">
+                <div class="menu-item"><div class="item-info"><span class="item-name">Coca Cola</span></div><span class="item-price">2,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Fanta</span></div><span class="item-price">2,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Mezzo Mix</span></div><span class="item-price">2,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Cola Zero</span></div><span class="item-price">2,50 €</span></div>
+              </div>
+              <div class="menu-col">
+                <div class="menu-item"><div class="item-info"><span class="item-name">Sprite</span></div><span class="item-price">2,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Uludag</span></div><span class="item-price">2,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Eistee</span></div><span class="item-price">2,50 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Ayran</span></div><span class="item-price">2,00 €</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Wasser</span></div><span class="item-price">2,00 €</span></div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- end menu-modal-body -->
+      </div><!-- end menu-modal -->
+    </div><!-- end menu-modal-overlay -->
+
+
+    <!-- ONLINE BESTELLEN MODAL -->
+    <div class="order-modal-overlay" id="orderModal" onclick="closeOrderModal(event)">
+      <div class="order-modal">
+        <button class="modal-close" onclick="closeOrderModal()">&#x2715;</button>
+        <img src="logo_mykebabhouse.png" alt="My Kebab House" class="modal-logo-img" />
+        <h2>Online bestellen</h2>
+        <p class="modal-subtitle">Bald verfügbar</p>
+        <p class="modal-desc">Unser Online-Bestellsystem wird gerade eingerichtet. Bis dahin erreicht ihr uns telefonisch oder kommt direkt vorbei.</p>
+        <a href="tel:059112079126" class="modal-btn-phone">0591 120 79 126</a>
+        <div class="modal-progress">
+          <div class="progress-label">Fortschritt</div>
+          <div class="progress-bar"><div class="progress-fill"></div></div>
+          <div class="progress-text">75% fertig</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
