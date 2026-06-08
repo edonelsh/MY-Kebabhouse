@@ -2,7 +2,7 @@
    MY KEBAB HOUSE — SCRIPTS
    ========================================== */
 
-const days  = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+const days = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
 const today = days[new Date().getDay()];
 
 // ── Info bar: highlight today's special pill ──
@@ -22,7 +22,7 @@ document.querySelectorAll('.hcs-item[data-day]').forEach(item => {
 });
 
 // ── Navbar: scroll + info-bar awareness ──
-const navbar  = document.getElementById('navbar');
+const navbar = document.getElementById('navbar');
 const infoBar = document.getElementById('infoBar');
 
 window.addEventListener('scroll', () => {
@@ -64,19 +64,19 @@ function showToast(msg) {
   const t = document.createElement('div');
   t.textContent = msg;
   Object.assign(t.style, {
-    position:'fixed', bottom:'2rem', left:'50%',
-    transform:'translateX(-50%) translateY(10px)',
-    background:'#27ae60', color:'white',
-    padding:'0.85rem 1.8rem', borderRadius:'50px',
-    fontWeight:'600', fontSize:'0.9rem',
-    boxShadow:'0 8px 28px rgba(0,0,0,0.5)', zIndex:'9999',
-    opacity:'0', transition:'transform 0.28s ease, opacity 0.28s ease',
-    fontFamily:'Inter, sans-serif',
+    position: 'fixed', bottom: '2rem', left: '50%',
+    transform: 'translateX(-50%) translateY(10px)',
+    background: '#27ae60', color: 'white',
+    padding: '0.85rem 1.8rem', borderRadius: '50px',
+    fontWeight: '600', fontSize: '0.9rem',
+    boxShadow: '0 8px 28px rgba(0,0,0,0.5)', zIndex: '9999',
+    opacity: '0', transition: 'transform 0.28s ease, opacity 0.28s ease',
+    fontFamily: 'Inter, sans-serif',
   });
   document.body.appendChild(t);
-  requestAnimationFrame(() => { t.style.opacity='1'; t.style.transform='translateX(-50%) translateY(0)'; });
+  requestAnimationFrame(() => { t.style.opacity = '1'; t.style.transform = 'translateX(-50%) translateY(0)'; });
   setTimeout(() => {
-    t.style.opacity='0'; t.style.transform='translateX(-50%) translateY(10px)';
+    t.style.opacity = '0'; t.style.transform = 'translateX(-50%) translateY(10px)';
     setTimeout(() => t.remove(), 320);
   }, 3500);
 }
@@ -114,28 +114,5 @@ document.querySelectorAll('.menu-modal-tabs .tab-btn').forEach(btn => {
 
 // Close on Escape
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    closeMenuModal();
-    closeOrderModal();
-  }
+  if (e.key === 'Escape') closeMenuModal();
 });
-
-// ══════════════════════════════════════
-// ONLINE BESTELLEN MODAL
-// ══════════════════════════════════════
-
-const orderModal   = document.getElementById('orderModal');
-const progressFill = document.querySelector('.progress-fill');
-
-function openOrderModal() {
-  orderModal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  setTimeout(() => { if (progressFill) progressFill.style.width = '75%'; }, 180);
-}
-
-function closeOrderModal(e) {
-  if (e && e.target !== orderModal) return;
-  orderModal.classList.remove('open');
-  document.body.style.overflow = '';
-  if (progressFill) progressFill.style.width = '0';
-}
