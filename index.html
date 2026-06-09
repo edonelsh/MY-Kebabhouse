@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Kebab House — Lingen</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -53,7 +53,7 @@
          ══════════════════════════════════════ -->
   <nav class="navbar" id="navbar">
     <div class="nav-logo">
-      <img src="logo_mykebabhouse.png" alt="My Kebab House" />
+      <img src="images/logo.png" alt="My Kebab House" />
     </div>
     <ul class="nav-links">
       <li><a href="#hero">Start</a></li>
@@ -61,21 +61,30 @@
       <li><a href="#location">Standort</a></li>
       <li><a href="#about">Über uns</a></li>
       <li><a href="#reviews">Rezensionen</a></li>
+      <li class="nav-mobile-actions">
+        <button class="btn-menu-nav" onclick="openMenuModal()">Speisekarte</button>
+        <a class="btn-order-nav" href="tel:059112079126">Anrufen</a>
+      </li>
     </ul>
     <div class="nav-actions">
       <button class="btn-menu-nav" onclick="openMenuModal()">Speisekarte</button>
       <a class="btn-order-nav" href="tel:059112079126">Anrufen</a>
     </div>
+    <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <!-- ══════════════════════════════════════
          HERO
          ══════════════════════════════════════ -->
   <section class="hero" id="hero">
-    <div class="hero-bg" style="background-image: url('7BC0021D-5341-4803-B17B-2B2489C9A1C5 (1).PNG')"></div>
+    <div class="hero-bg">
+      <img src="images/logo-new.jpeg" class="hero-bg-logo" alt="" />
+    </div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <img src="logo_mykebabhouse.png" alt="My Kebab House" class="hero-logo" />
+      <img src="images/logo.png" alt="My Kebab House" class="hero-logo" />
       <h1 class="hero-title">
         <span class="line1">Frisch.</span>
         <span class="line2">Lecker.</span>
@@ -86,6 +95,11 @@
         <a class="btn-primary" href="tel:059112079126">Anrufen</a>
         <button class="btn-ghost" onclick="openMenuModal()">Zur Speisekarte</button>
       </div>
+      <div class="hero-badges">
+        <span class="hero-badge">💳 Kartenzahlung möglich</span>
+        <span class="hero-badge">🛵 Lieferung ab 17 Uhr</span>
+        <span class="hero-badge">📍 Lingen</span>
+      </div>
     </div>
     <div class="scroll-indicator">
       <div class="scroll-dot"></div>
@@ -95,10 +109,10 @@
   <!-- TAGLINE BAND -->
   <div class="tagline-band">
     <div class="tagline-track">
-      <span>Döner &bull;</span><span>Pizza &bull;</span><span>Lahmacun &bull;</span>
-      <span>Pasta &bull;</span><span>Falafel &bull;</span><span>Fitness Meals &bull;</span>
-      <span>Döner &bull;</span><span>Pizza &bull;</span><span>Lahmacun &bull;</span>
-      <span>Pasta &bull;</span><span>Falafel &bull;</span><span>Fitness Meals &bull;</span>
+      <span>Döner &bull;</span><span>Pizza &bull;</span><span>Lahmacun &bull;</span><span>Pasta &bull;</span><span>Falafel &bull;</span><span>Fitness Meals &bull;</span><span>Kebab &bull;</span><span>Auflauf &bull;</span>
+      <span>Döner &bull;</span><span>Pizza &bull;</span><span>Lahmacun &bull;</span><span>Pasta &bull;</span><span>Falafel &bull;</span><span>Fitness Meals &bull;</span><span>Kebab &bull;</span><span>Auflauf &bull;</span>
+      <span>Döner &bull;</span><span>Pizza &bull;</span><span>Lahmacun &bull;</span><span>Pasta &bull;</span><span>Falafel &bull;</span><span>Fitness Meals &bull;</span><span>Kebab &bull;</span><span>Auflauf &bull;</span>
+      <span>Döner &bull;</span><span>Pizza &bull;</span><span>Lahmacun &bull;</span><span>Pasta &bull;</span><span>Falafel &bull;</span><span>Fitness Meals &bull;</span><span>Kebab &bull;</span><span>Auflauf &bull;</span>
     </div>
   </div>
 
@@ -106,8 +120,33 @@
   <section class="highlights-section" id="highlights">
     <div class="highlights-grid">
 
-      <!-- Wochenangebote -->
+      <!-- Öffnungszeiten + Lieferung -->
       <div class="highlight-card reveal">
+        <div class="hc-header">
+          <span class="hc-label">Zeiten</span>
+          <h3>Öffnungszeiten</h3>
+        </div>
+        <div class="hc-open-status" id="openStatus"></div>
+        <div class="hc-hours">
+          <div class="hours-row"><span>Mo – Sa</span><span>10:30 – 22:30</span></div>
+          <div class="hours-row"><span>So &amp; Feiertage</span><span>11:30 – 22:00</span></div>
+          <div class="hours-divider"></div>
+          <div class="hours-row hours-delivery"><span>Lieferung Mo–Sa</span><span>17:00–22:00</span>
+          </div>
+          <div class="hours-row hours-delivery"><span>Lieferung So &amp; Feiertage</span><span>11:30–22:00</span></div>
+          <div class="hours-divider"></div>
+          <div class="hours-row hours-reach"><span>Ab 18 €</span><span>Lingen</span></div>
+          <div class="hours-row hours-reach"><span>Ab 35 €</span><span>Bramsche, Lohne, Biene, Ramsel, Baccum,
+              Dalum</span></div>
+        </div>
+        <div class="hc-card-pay-badge">💳 Kartenzahlung möglich</div>
+        <div class="hc-actions">
+          <a class="hc-btn-call" href="tel:059112079126">📞 Jetzt anrufen</a>
+        </div>
+      </div>
+
+      <!-- Wochenangebote -->
+      <div class="highlight-card reveal delay-2">
         <div class="hc-header">
           <span class="hc-label">Wochenangebote</span>
           <h3>Diese Woche</h3>
@@ -132,33 +171,47 @@
         <p class="hc-note">Gilt nicht an Feiertagen · Zusatzbeläge gegen Aufpreis</p>
       </div>
 
-      <!-- Öffnungszeiten + Lieferung -->
-      <div class="highlight-card reveal delay-2">
-        <div class="hc-header">
-          <span class="hc-label">Zeiten</span>
-          <h3>Öffnungszeiten</h3>
-        </div>
-        <div class="hc-hours">
-          <div class="hours-row"><span>Mo – Sa</span><span>10:30 – 22:30</span></div>
-          <div class="hours-row"><span>So &amp; Feiertage</span><span>11:30 – 22:00</span></div>
-          <div class="hours-divider"></div>
-          <div class="hours-row hours-delivery"><span>Lieferung Mo–Sa</span><span>17:00–22:00</span>
-          </div>
-          <div class="hours-row hours-delivery"><span>Lieferung So &amp; Feiertage</span><span>11:30–22:00</span></div>
-          <div class="hours-divider"></div>
-          <div class="hours-row hours-reach"><span>Ab 18 €</span><span>Lingen</span></div>
-          <div class="hours-row hours-reach"><span>Ab 35 €</span><span>Bramsche, Lohne, Biene, Ramsel, Baccum,
-              Dalum</span></div>
-        </div>
-      </div>
+    </div>
+  </section>
 
+  <!-- FOOD GALLERY -->
+  <section class="gallery-section" id="gallery">
+    <div class="gallery-header reveal">
+      <span class="section-label">Unsere Gerichte</span>
+      <h2>Frisch. Lecker. Zum Anschauen.</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal" onclick="openMenuModal()">
+        <img src="images/food-teller-pommes.png" alt="Döner Teller" loading="lazy" />
+        <div class="gallery-overlay"><span>Speisekarte</span></div>
+      </div>
+      <div class="gallery-item reveal delay-1" onclick="openMenuModal()">
+        <img src="images/food-kebab-tasche.png" alt="Kebab-Tasche" loading="lazy" />
+        <div class="gallery-overlay"><span>Speisekarte</span></div>
+      </div>
+      <div class="gallery-item reveal delay-2" onclick="openMenuModal()">
+        <img src="images/food-pasta.png" alt="Pasta mit Hähnchen" loading="lazy" />
+        <div class="gallery-overlay"><span>Speisekarte</span></div>
+      </div>
+      <div class="gallery-item reveal" onclick="openMenuModal()">
+        <img src="images/food-doener-bowl.png" alt="Döner Bowl" loading="lazy" />
+        <div class="gallery-overlay"><span>Speisekarte</span></div>
+      </div>
+      <div class="gallery-item reveal delay-1" onclick="openMenuModal()">
+        <img src="images/food-kebab-teller.png" alt="Kebab Teller" loading="lazy" />
+        <div class="gallery-overlay"><span>Speisekarte</span></div>
+      </div>
+      <div class="gallery-item reveal delay-2" onclick="openMenuModal()">
+        <img src="images/food-sharing-platte.png" alt="Sharing Platte" loading="lazy" />
+        <div class="gallery-overlay"><span>Speisekarte</span></div>
+      </div>
     </div>
   </section>
 
   <!-- LOCATION -->
   <section class="location-section" id="location">
     <div class="location-img reveal">
-      <img src="WhatsApp Image 2026-06-03 at 21.54.20.jpeg" alt="My Kebab House" />
+      <img src="images/restaurant.jpg" alt="My Kebab House" />
       <div class="location-glow"></div>
     </div>
     <div class="location-info reveal delay-1">
@@ -201,7 +254,7 @@
   <!-- ABOUT -->
   <section class="about" id="about">
     <div class="about-img reveal">
-      <img src="rhl4969_2109_1.jpg" alt="Lingen" />
+      <img src="images/about.jpg" alt="Lingen" />
     </div>
     <div class="about-text reveal delay-1">
       <span class="section-label">Über uns</span>
@@ -224,7 +277,7 @@
             <div class="score-stars">
               <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star half">★</span>
             </div>
-            <span class="score-count">Über 100 zufriedene Kunden</span>
+            <span class="score-count">Über 300 zufriedene Kunden</span>
           </div>
         </div>
       </div>
@@ -241,8 +294,8 @@
 
         <div class="review-card reveal delay-1">
           <div class="review-top">
-            <div class="reviewer-avatar">G</div>
-            <div class="reviewer-info"><strong>Google-Nutzer</strong><span>Google Rezension</span></div>
+            <div class="reviewer-avatar">M</div>
+            <div class="reviewer-info"><strong>Michael Schmitt</strong></div>
             <div class="review-stars">★★★★☆</div>
           </div>
           <p>Die Bestellung wird am Tresen abgegeben und man sagt, wir essen im Lokal.</p>
@@ -251,7 +304,7 @@
         <div class="review-card reveal delay-2">
           <div class="review-top">
             <div class="reviewer-avatar">L</div>
-            <div class="reviewer-info"><strong>Google-Nutzer</strong><span>Google Rezension</span></div>
+            <div class="reviewer-info"><strong>Lea G</strong></div>
             <div class="review-stars">★★★★☆</div>
           </div>
           <p>Das Brot schmeckt hier sehr sehr lecker, ob beim Döner oder bei der Pizza.</p>
@@ -259,11 +312,29 @@
 
         <div class="review-card reveal delay-1">
           <div class="review-top">
-            <div class="reviewer-avatar">K</div>
-            <div class="reviewer-info"><strong>Google-Nutzer</strong><span>Google Rezension</span></div>
+            <div class="reviewer-avatar">L</div>
+            <div class="reviewer-info"><strong>Lukas Szymura</strong></div>
             <div class="review-stars">★★★★★</div>
           </div>
           <p>Sehr leckeres Essen, große Auswahl, netter Service und toller Chef 👍</p>
+        </div>
+
+        <div class="review-card reveal">
+          <div class="review-top">
+            <div class="reviewer-avatar">A</div>
+            <div class="reviewer-info"><strong>A. Buttler</strong><span>vor 5 Monaten</span></div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+          <p>Extrem lecker, mein Schwager und ich lieben den Big L. Aber auch die anderen Gerichte sind top. Immer super lieb und guter Service. Wir lieben 5 Sterne.</p>
+        </div>
+
+        <div class="review-card reveal delay-1">
+          <div class="review-top">
+            <div class="reviewer-avatar">N</div>
+            <div class="reviewer-info"><strong>Niklas Timme</strong><span>vor 9 Monaten</span></div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+          <p>Haben heute wieder mal einen Döner und eine Pizza geholt. Was soll man sagen, für mich der beste Laden hier. Geschmack und Service sowie das Essen einfach perfekt. Döner schön prall gefüllt. Pizza nicht zu hell und nicht zu dunkel!</p>
         </div>
 
       </div>
@@ -274,7 +345,7 @@
   <footer class="footer">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="logo_mykebabhouse.png" alt="My Kebab House" />
+        <img src="images/logo.png" alt="My Kebab House" />
         <p>Frisch. Lecker. Authentisch.<br />Konrad-Adenauer-Ring 14, 49808 Lingen.</p>
         <div class="footer-social">
           <a href="https://www.mykebabhouse.de" target="_blank" rel="noopener">mykebabhouse.de</a>
@@ -313,7 +384,7 @@
 
       <div class="menu-modal-header">
         <div class="menu-modal-title">
-          <img src="logo_mykebabhouse.png" alt="" class="menu-modal-logo" />
+          <img src="images/logo.png" alt="" class="menu-modal-logo" />
           <div>
             <h2>Speisekarte</h2>
             <p>Konrad-Adenauer-Ring 14 · Lingen · 0591 120 79 126</p>
@@ -345,71 +416,67 @@
             <div class="menu-col">
               <div class="menu-col-label">Eingerollt</div>
               <div class="menu-item">
-                <div class="item-info"><span class="item-name">Kebab eingerollt</span><span
+                <div class="item-info"><span class="item-name">63 · Kebab eingerollt</span><span
                     class="item-desc">Hackfleisch-Drehspieß, Tzatziki, Tomaten, Gurken, Eisbergsalat, Krautsalat,
                     Zwiebeln</span></div><span class="item-price">6,00 / 8,00 €</span>
               </div>
               <div class="menu-item">
-                <div class="item-info"><span class="item-name">Kebab Speciale eingerollt <span class="item-tag">Käse
-                      überbacken</span></span><span class="item-desc">Hackfleisch-Drehspieß, Tzatziki, Tomaten, Gurken,
+                <div class="item-info"><span class="item-name">64 · Kebab Speciale eingerollt <span class="item-tag">Käse überbacken</span></span><span class="item-desc">Hackfleisch-Drehspieß, Tzatziki, Tomaten, Gurken,
                     Eisbergsalat, Krautsalat, Zwiebeln, Käse</span></div><span class="item-price">7,00 / 9,00 €</span>
               </div>
               <div class="menu-item">
-                <div class="item-info"><span class="item-name">Di Pollo eingerollt</span><span
+                <div class="item-info"><span class="item-name">65 · Di Pollo eingerollt</span><span
                     class="item-desc">Hähnchenfleisch-Drehspieß, Tzatziki, Tomaten, Gurken, Eisbergsalat, Krautsalat,
                     Zwiebeln</span></div><span class="item-price">6,00 / 8,00 €</span>
               </div>
               <div class="menu-item">
-                <div class="item-info"><span class="item-name">Di Pollo Speciale eingerollt <span class="item-tag">Käse
-                      überbacken</span></span><span class="item-desc">Hähnchenfleisch-Drehspieß, Tzatziki, Tomaten,
+                <div class="item-info"><span class="item-name">66 · Di Pollo Speciale eingerollt <span class="item-tag">Käse überbacken</span></span><span class="item-desc">Hähnchenfleisch-Drehspieß, Tzatziki, Tomaten,
                     Gurken, Eisbergsalat, Krautsalat, Zwiebeln</span></div><span class="item-price">7,00 / 9,00 €</span>
               </div>
               <div class="menu-item">
-                <div class="item-info"><span class="item-name">Falafel eingerollt <span
+                <div class="item-info"><span class="item-name">73 · Falafel eingerollt <span
                       class="item-tag vegan">Vegetarisch</span></span><span class="item-desc">Falafel, Tzatziki, Tomaten,
                     Gurken, Eisbergsalat, Krautsalat, Zwiebeln</span></div><span class="item-price">6,00 / 8,00 €</span>
               </div>
               <div class="menu-item">
-                <div class="item-info"><span class="item-name">Big L</span><span
+                <div class="item-info"><span class="item-name">74 · Big L</span><span
                     class="item-desc">Hackfleisch-Drehspieß, Tzatziki, Tomaten, Gurken, Eisbergsalat, Krautsalat,
                     Zwiebeln</span></div><span class="item-price">15,00 €</span>
               </div>
               <div class="menu-item">
-                <div class="item-info"><span class="item-name">Big L Speciale <span class="item-tag">Käse
-                      überbacken</span></span><span class="item-desc">Hackfleisch-Drehspieß, Tzatziki, Tomaten, Gurken,
+                <div class="item-info"><span class="item-name">75 · Big L Speciale <span class="item-tag">Käse überbacken</span></span><span class="item-desc">Hackfleisch-Drehspieß, Tzatziki, Tomaten, Gurken,
                     Eisbergsalat, Krautsalat, Zwiebeln</span></div><span class="item-price">17,50 €</span>
               </div>
             </div>
             <div class="menu-col">
               <div class="menu-col-label">Teller</div>
               <div class="menu-item">
-                <div class="item-info"><span class="item-name">Kebab Teller</span><span
+                <div class="item-info"><span class="item-name">67 · Kebab Teller</span><span
                     class="item-desc">Hackfleisch-Drehspieß, Pommes, Tzatziki, Beilagensalat, Brot</span></div><span
                   class="item-price">14,50 €</span>
               </div>
               <div class="menu-item">
-                <div class="item-info"><span class="item-name">Di Pollo Teller</span><span
+                <div class="item-info"><span class="item-name">68 · Di Pollo Teller</span><span
                     class="item-desc">Hähnchenfleisch-Drehspieß, Pommes, Tzatziki, Beilagensalat, Brot</span></div><span
                   class="item-price">14,50 €</span>
               </div>
               <div class="menu-item">
-                <div class="item-info"><span class="item-name">PommKebab</span><span
-                    class="item-desc">Hackfleisch-Drehspieß, Pommes, Tzatziki</span></div><span class="item-price">7,50
-                  €</span>
+                <div class="item-info"><span class="item-name">69 · PommKebab</span><span
+                    class="item-desc">Hackfleisch-Drehspieß, Pommes, Tzatziki</span></div><span class="item-price">7,50 €</span>
               </div>
               <div class="menu-col-label" style="margin-top:1.5rem;">Lahmacun</div>
               <div class="menu-item">
-                <div class="item-info"><span class="item-name">Lahmacun</span><span class="item-desc">Fleischsoße,
+                <div class="item-info"><span class="item-name">70 · Lahmacun</span><span class="item-desc">Fleischsoße,
                     Tzatziki, Tomaten, Gurken, Eisbergsalat, Krautsalat, Zwiebeln</span></div><span
                   class="item-price">7,00 €</span>
               </div>
               <div class="menu-item">
-                <div class="item-info"><span class="item-name">Lahmacun Speciale</span><span
+                <div class="item-info"><span class="item-name">71 · Lahmacun Speciale</span><span
                     class="item-desc">Fleischsoße, Hackfleisch-Drehspieß, Tzatziki, Tomaten, Gurken, Krautsalat</span>
                 </div><span class="item-price">8,00 €</span>
               </div>
               <div class="menu-item">
-                <div class="item-info"><span class="item-name">MY Lahmacun</span><span class="item-desc">Fleischsoße,
+                <div class="item-info"><span class="item-name">72 · MY Lahmacun</span><span class="item-desc">Fleischsoße,
                     Hackfleisch-Drehspieß, Sucuk, Tzatziki, Tomaten, Gurken, Krautsalat</span></div><span
                   class="item-price">9,00 €</span>
               </div>
@@ -875,7 +942,7 @@
   </div><!-- end menu-modal-overlay -->
 
 
-  <script src="script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 
 </html>

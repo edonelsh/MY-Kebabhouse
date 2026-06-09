@@ -21,18 +21,58 @@ document.querySelectorAll('.hcs-item[data-day]').forEach(item => {
   if (item.dataset.day === today) item.classList.add('today-item');
 });
 
+// ── Live open status ──
+(function () {
+  const statusEl = document.getElementById('openStatus');
+  if (!statusEl) return;
+  const now = new Date();
+  const dow = now.getDay(); // 0=So, 1=Mo…6=Sa
+  const h = now.getHours() + now.getMinutes() / 60;
+  const isSun = dow === 0;
+  const openTime = isSun ? 11.5 : 10.5;
+  const closeTime = isSun ? 22.0 : 22.5;
+  const isOpen = h >= openTime && h < closeTime;
+  const closeHour = isSun ? '22:00' : '22:30';
+  const openHour = isSun ? '11:30' : '10:30';
+  if (isOpen) {
+    statusEl.innerHTML = `<span class="status-dot open"></span><span class="status-text">Jetzt geöffnet &nbsp;·&nbsp; bis <strong>${closeHour} Uhr</strong></span>`;
+  } else {
+    const nextOpen = h < openTime ? `ab ${openHour} Uhr` : 'morgen ab ' + (dow === 6 ? '11:30' : '10:30') + ' Uhr';
+    statusEl.innerHTML = `<span class="status-dot closed"></span><span class="status-text">Geschlossen &nbsp;·&nbsp; öffnet ${nextOpen}</span>`;
+  }
+})();
+
 // ── Navbar: scroll + info-bar awareness ──
 const navbar = document.getElementById('navbar');
 const infoBar = document.getElementById('infoBar');
 
+function setInfoBarHeight() {
+  const h = infoBar ? infoBar.offsetHeight : 56;
+  document.documentElement.style.setProperty('--infobar-h', h + 'px');
+}
+
+setInfoBarHeight();
+window.addEventListener('resize', setInfoBarHeight);
+
 window.addEventListener('scroll', () => {
-  const barH = infoBar ? infoBar.offsetHeight : 38;
+  const barH = infoBar ? infoBar.offsetHeight : 56;
   navbar.classList.toggle('scrolled', window.scrollY > 60);
   if (infoBar) {
     const gone = window.scrollY > barH;
     infoBar.classList.toggle('hidden', gone);
     navbar.classList.toggle('bar-hidden', gone);
   }
+  navbar.classList.remove('nav-open');
+});
+
+// ── Hamburger menu ──
+const hamburger = document.getElementById('hamburger');
+hamburger?.addEventListener('click', () => {
+  navbar.classList.toggle('nav-open');
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => navbar.classList.remove('nav-open'));
 });
 
 // ── Scroll reveal ──
